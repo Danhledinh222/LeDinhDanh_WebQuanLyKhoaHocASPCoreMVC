@@ -26,13 +26,16 @@ Dự án được thiết kế với 5 bảng chính liên kết chặt chẽ:
 ## 📸 Hình Ảnh Demo
 
 ### 1. Sơ đồ Database (ER Diagram)
-![Database Diagram](AnhDatabase.png)
+![Database Diagram](<img width="1530" height="879" alt="AnhDatabase" src="https://github.com/user-attachments/assets/13c9323c-4346-45e1-bca2-28bb05ce6b5f" />
+)
 
 ### 2. Trang chủ Dashboard
-![Trang Chủ](Anhtrangchu.jpg)
+![Trang Chủ](<img width="1919" height="1024" alt="Anhtrangchu" src="https://github.com/user-attachments/assets/3a04a96c-e127-4e39-9f7d-ff217274e242" />
+)
 
 ### 3. Quản lý Lớp học phần
-![Quản lý Lớp](AnhTrangcon.png)
+![Quản lý Lớp](<img width="1919" height="1017" alt="AnhTrangcon" src="https://github.com/user-attachments/assets/ebd84ac9-b466-4825-8242-58fc09d3a3d0" />
+)
 
 ## 🛠 Hướng Dẫn Cài Đặt
 1.  **Clone dự án:**
@@ -50,5 +53,4 @@ Dự án được thiết kế với 5 bảng chính liên kết chặt chẽ:
 ## 👤 Thông Tin Tác Giả
 * **Họ và tên:** Lê Đình Danh
 * **MSV:** 2415053122308
-* **Lớp:** 125DHPC02
 * **Trường:** Đại học Sư phạm Kỹ thuật – Đại học Đà Nẵng
