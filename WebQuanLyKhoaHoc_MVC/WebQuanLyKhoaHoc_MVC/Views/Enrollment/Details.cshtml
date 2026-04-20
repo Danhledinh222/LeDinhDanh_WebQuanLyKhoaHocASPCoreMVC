@@ -1,0 +1,52 @@
+﻿@model learnMVC.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Chi tiết Đăng ký";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header text-white py-3" style="background-color: #6f42c1;">
+                    <h5 class="mb-0">Chi Tiết Đăng Ký Lớp</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-sm-4 text-secondary">Mã Đăng Ký:</div>
+                        <div class="col-sm-8 fw-bold">@Html.DisplayFor(model => model.Id)</div>
+                    </div>
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-sm-4 text-secondary">Sinh Viên:</div>
+                        <div class="col-sm-8 text-primary fw-bold">@Model.Student?.Name</div>
+                    </div>
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-sm-4 text-secondary">Môn Học:</div>
+                        <div class="col-sm-8 fw-medium">@Model.CourseClass?.Course?.CourseName</div>
+                    </div>
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-sm-4 text-secondary">Học Kỳ / Năm:</div>
+                        <div class="col-sm-8">HK @Model.CourseClass?.Semester - Năm @Model.CourseClass?.Year</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-4 text-secondary align-self-center">Điểm Số:</div>
+                        <div class="col-sm-8">
+                            @if (Model.Grade.HasValue)
+                            {
+                                <span class="badge @(Model.Grade >= 5 ? "bg-success" : "bg-danger") fs-5">@Model.Grade</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-secondary fs-6">Chưa có điểm</span>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer bg-light text-end">
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Vào điểm / Sửa</a>
+                    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

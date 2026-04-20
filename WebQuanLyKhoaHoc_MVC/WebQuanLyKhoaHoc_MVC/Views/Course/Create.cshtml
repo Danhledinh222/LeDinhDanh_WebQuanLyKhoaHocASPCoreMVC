@@ -1,0 +1,45 @@
+﻿@model learnMVC.Models.Course
+
+@{
+    ViewData["Title"] = "Thêm Môn học";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-0">
+                <div class="card-header bg-success bg-gradient text-white py-3">
+                    <h5 class="mb-0">Thêm Môn học Mới</h5>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="CourseName" class="form-label fw-bold">Tên Môn Học <span class="text-danger">*</span></label>
+                            <input asp-for="CourseName" class="form-control" placeholder="Nhập tên môn học..." />
+                            <span asp-validation-for="CourseName" class="text-danger small"></span>
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label asp-for="Credits" class="form-label fw-bold">Số Tín Chỉ <span class="text-danger">*</span></label>
+                            <input asp-for="Credits" type="number" class="form-control" placeholder="1-10" />
+                            <span asp-validation-for="Credits" class="text-danger small"></span>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a asp-action="Index" class="btn btn-secondary me-md-2">Quay lại</a>
+                            <input type="submit" value="Lưu thông tin" class="btn btn-success" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

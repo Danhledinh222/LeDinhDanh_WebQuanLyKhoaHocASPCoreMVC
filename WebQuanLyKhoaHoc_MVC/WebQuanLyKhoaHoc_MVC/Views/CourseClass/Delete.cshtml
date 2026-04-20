@@ -1,0 +1,32 @@
+﻿@model learnMVC.Models.CourseClass
+
+@{
+    ViewData["Title"] = "Xóa Lớp học phần";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-danger border-2">
+                <div class="card-body text-center p-5">
+                    <h3 class="text-danger mb-4">Cảnh báo!</h3>
+                    <p class="fs-5">Bạn có chắc chắn muốn xóa lớp học phần này không?</p>
+                    <p class="text-muted small">Các sinh viên đã đăng ký vào lớp học phần này cũng sẽ bị ảnh hưởng.</p>
+
+                    <div class="mt-4 bg-light p-3 rounded text-start mb-4">
+                        <p class="mb-1"><strong>Mã Lớp:</strong> @Model.Id</p>
+                        <p class="mb-1"><strong>Môn Học:</strong> @Model.Course?.CourseName</p>
+                        <p class="mb-1"><strong>Giảng Viên:</strong> @Model.Teacher?.Name</p>
+                        <p class="mb-0"><strong>Thời gian:</strong> Học kỳ @Model.Semester - Năm @Model.Year</p>
+                    </div>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <a asp-action="Index" class="btn btn-secondary btn-lg me-3">Hủy bỏ</a>
+                        <input type="submit" value="Xác nhận Xóa" class="btn btn-danger btn-lg" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model learnMVC.Models.CourseClass
+
+@{
+    ViewData["Title"] = "Chi tiết Lớp học phần";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header text-white py-3" style="background-color: #008080;">
+                    <h5 class="mb-0">Thông Tin Chi Tiết Lớp Học Phần</h5>
+                </div>
+                <div class="card-body">
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-sm-4 text-secondary">Mã Lớp:</div>
+                        <div class="col-sm-8 fw-bold">@Html.DisplayFor(model => model.Id)</div>
+                    </div>
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-sm-4 text-secondary">Môn Học:</div>
+                        <div class="col-sm-8 text-primary fw-bold">@Model.Course?.CourseName</div>
+                    </div>
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-sm-4 text-secondary">Giảng Viên:</div>
+                        <div class="col-sm-8 fw-medium">@Model.Teacher?.Name</div>
+                    </div>
+                    <div class="row mb-3 border-bottom pb-2">
+                        <div class="col-sm-4 text-secondary">Học Kỳ:</div>
+                        <div class="col-sm-8">@Html.DisplayFor(model => model.Semester)</div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-sm-4 text-secondary">Năm Học:</div>
+                        <div class="col-sm-8">@Html.DisplayFor(model => model.Year)</div>
+                    </div>
+                </div>
+                <div class="card-footer bg-light text-end">
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Sửa thông tin</a>
+                    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

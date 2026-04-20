@@ -1,0 +1,65 @@
+﻿@model learnMVC.Models.CourseClass
+
+@{
+    ViewData["Title"] = "Mở Lớp Học Phần";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow border-0">
+                <div class="card-header bg-success text-white py-3">
+                    <h5 class="mb-0">Mở Lớp Học Phần Mới</h5>
+                </div>
+                <div class="card-body p-4">
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="CourseId" class="form-label fw-bold">Chọn Môn Học <span class="text-danger">*</span></label>
+                                <select asp-for="CourseId" class="form-select" asp-items="ViewBag.CourseId">
+                                    <option value="">-- Chọn môn học --</option>
+                                </select>
+                                <span asp-validation-for="CourseId" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="TeacherId" class="form-label fw-bold">Phân công Giảng Viên <span class="text-danger">*</span></label>
+                                <select asp-for="TeacherId" class="form-select" asp-items="ViewBag.TeacherId">
+                                    <option value="">-- Chọn giảng viên --</option>
+                                </select>
+                                <span asp-validation-for="TeacherId" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-4">
+                                <label asp-for="Semester" class="form-label fw-bold">Học Kỳ <span class="text-danger">*</span></label>
+                                <input asp-for="Semester" class="form-control" placeholder="Ví dụ: 1, 2, Hè..." />
+                                <span asp-validation-for="Semester" class="text-danger small"></span>
+                            </div>
+
+                            <div class="col-md-6 mb-4">
+                                <label asp-for="Year" class="form-label fw-bold">Năm Học <span class="text-danger">*</span></label>
+                                <input asp-for="Year" type="number" class="form-control" value="@DateTime.Now.Year" />
+                                <span asp-validation-for="Year" class="text-danger small"></span>
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end border-top pt-3">
+                            <a asp-action="Index" class="btn btn-secondary me-md-2">Quay lại</a>
+                            <input type="submit" value="Lưu thông tin" class="btn btn-success" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

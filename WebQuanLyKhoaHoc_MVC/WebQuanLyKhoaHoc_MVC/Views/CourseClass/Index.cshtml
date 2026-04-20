@@ -1,0 +1,49 @@
+﻿@model IEnumerable<learnMVC.Models.CourseClass>
+
+@{
+    ViewData["Title"] = "Danh sách Lớp học phần";
+}
+
+<div class="container mt-4">
+    <div class="card shadow-sm border-0">
+        <div class="card-header text-white d-flex justify-content-between align-items-center py-3" style="background-color: #008080;">
+            <h4 class="mb-0"><i class="bi bi-journal-bookmark-fill"></i> Quản lý Lớp Học Phần</h4>
+            <a asp-action="Create" class="btn btn-light btn-sm fw-bold shadow-sm" style="color: #008080;">
+                + Mở Lớp Học Phần
+            </a>
+        </div>
+        <div class="card-body p-0">
+            <table class="table table-hover table-striped mb-0 text-center align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th class="px-4 text-start">#ID Lớp</th>
+                        <th class="text-start">Môn Học</th>
+                        <th>Giảng Viên</th>
+                        <th>Học Kỳ</th>
+                        <th>Năm Học</th>
+                        <th>Thao tác</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="px-4 fw-bold text-secondary text-start">@item.Id</td>
+                            <td class="fw-bold text-start" style="color: #008080;">@item.Course?.CourseName</td>
+                            <td>@item.Teacher?.Name</td>
+                            <td><span class="badge bg-secondary">Học kỳ @item.Semester</span></td>
+                            <td class="fw-medium">@item.Year</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-warning btn-sm">Sửa</a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm">Xem</a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">Xóa</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+﻿@model learnMVC.Models.Enrollment
+
+@{
+    ViewData["Title"] = "Hủy Đăng ký";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow border-danger border-2">
+                <div class="card-body text-center p-5">
+                    <h3 class="text-danger mb-4">Cảnh báo Hủy Đăng Ký!</h3>
+                    <p class="fs-5">Bạn có chắc chắn muốn xóa dữ liệu đăng ký này?</p>
+                    <p class="text-muted small">Nếu sinh viên đã có điểm, điểm số cũng sẽ bị xóa vĩnh viễn.</p>
+
+                    <div class="mt-4 bg-light p-3 rounded text-start mb-4">
+                        <p class="mb-1"><strong>Mã ĐK:</strong> @Model.Id</p>
+                        <p class="mb-1"><strong>Sinh Viên:</strong> @Model.Student?.Name</p>
+                        <p class="mb-1"><strong>Môn Học:</strong> @Model.CourseClass?.Course?.CourseName</p>
+                        <p class="mb-0"><strong>Điểm hiện tại:</strong> @(Model.Grade.HasValue? Model.Grade.ToString() : "Chưa có")</p>
+                    </div>
+
+                    <form asp-action="Delete">
+                        <input type="hidden" asp-for="Id" />
+                        <a asp-action="Index" class="btn btn-secondary btn-lg me-3">Hủy bỏ</a>
+                        <input type="submit" value="Xác nhận Xóa" class="btn btn-danger btn-lg" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

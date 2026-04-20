@@ -1,0 +1,33 @@
+﻿@model learnMVC.Models.Student
+
+@{
+    ViewData["Title"] = "Chi tiết Sinh viên";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-info text-white py-3">
+                    <h5 class="mb-0">Hồ Sơ Sinh Viên</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 text-secondary">Mã Sinh Viên:</dt>
+                        <dd class="col-sm-8 fw-bold">@Html.DisplayFor(model => model.Id)</dd>
+
+                        <dt class="col-sm-4 text-secondary">Họ và Tên:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+
+                        <dt class="col-sm-4 text-secondary">Email:</dt>
+                        <dd class="col-sm-8">@Html.DisplayFor(model => model.Email)</dd>
+                    </dl>
+                </div>
+                <div class="card-footer bg-light text-end">
+                    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">Sửa thông tin</a>
+                    <a asp-action="Index" class="btn btn-secondary">Quay lại danh sách</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
